@@ -11,5 +11,7 @@ int main()
 	stack.push(5);
 	cout << "Test stack:\n";
 	cout << stack.pop() << "\n";
-	cout << stack.pop() << "\n";
+	cout << stack.topStack() << "\n";
+	stack.topStack() *= stack.topStack();
+	cout << stack.topStack() << "\n";
 }

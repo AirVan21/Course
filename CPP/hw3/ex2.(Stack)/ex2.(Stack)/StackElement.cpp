@@ -5,7 +5,7 @@ StackElement::StackElement(int value) :
 	,next(nullptr)
 {}
 
-int StackElement::getValue()
+int& StackElement::getValue()
 {
 	return value;
 }

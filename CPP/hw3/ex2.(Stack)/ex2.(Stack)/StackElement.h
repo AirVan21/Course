@@ -4,7 +4,7 @@ public:
 	
 	StackElement(int value );
 
-	int getValue();
+	int& getValue();
 
 	void setNext(StackElement *nextIn);
 

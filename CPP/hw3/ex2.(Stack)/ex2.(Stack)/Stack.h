@@ -12,6 +12,11 @@ public:
 
 	int pop();
 
+	/*
+		Get's or modifies value of element on top of the Stack
+	*/
+	int& topStack();
+
 private:
 	// Pointer to the top
 	StackElement *top;

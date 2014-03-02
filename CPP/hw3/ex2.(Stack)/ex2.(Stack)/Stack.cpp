@@ -27,3 +27,8 @@ int Stack::pop()
 		return -1;
 	}
 }
+
+int& Stack::topStack()
+{
+	return top->getValue();
+}
