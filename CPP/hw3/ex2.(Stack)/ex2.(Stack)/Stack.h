@@ -17,7 +17,16 @@ public:
 	*/
 	int& topStack();
 
+	/*
+		Product of elements on Stack
+	*/
+	long product();
+
 private:
 	// Pointer to the top
 	StackElement *top;
+	// Stores product of all elements
+	long accum;
+	// Amount of zeros in Stack
+	int zero;
 };

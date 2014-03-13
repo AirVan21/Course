@@ -1,31 +1,44 @@
 #include "Stack.h"
 
 Stack::Stack() : 
-	top(nullptr)
+	top(nullptr),
+	zero(0),
+	accum(1)
 {}
 
 void Stack::push(int param)
 {
 	StackElement *element = new StackElement(param);
-	if (top == nullptr) {
-		top = element;
+	auto help = top;
+	element->setNext(help);
+	top = element;
+	
+	if (param) {
+		accum *= param;
 	} else {
-		auto help = top;
-		element->setNext(help);
-		top = element;
+		zero++;
 	}
 }
 
 int Stack::pop()
 {
 	if (top != nullptr) {
-		int answer = 0;
-		answer = top->getValue();
+		int answer = top->getValue();
 		top = top->getNext();
+		if (answer) {
+			accum /= answer;
+		} else {
+			zero--;
+		}
 		return answer;
 	} else {
 		return -1;
 	}
+}
+
+long Stack::product()
+{
+	return zero ? 0 : accum;
 }
 
 int& Stack::topStack()

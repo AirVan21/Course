@@ -10,8 +10,9 @@ int main()
 	stack.push(3);
 	stack.push(5);
 	cout << "Test stack:\n";
+	cout << stack.product() << "\n";
 	cout << stack.pop() << "\n";
-	cout << stack.topStack() << "\n";
-	stack.topStack() *= stack.topStack();
-	cout << stack.topStack() << "\n";
+	cout << stack.product() << "\n";
+	stack.push(0);
+	cout << stack.product() << "\n";
 }

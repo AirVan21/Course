@@ -9,8 +9,8 @@ public:
 	Circle(Point topLeft, Point bottomRight);
 	~Circle();
 
-	double perim();
-	double area();
+	double perim() const;
+	double area() const;
 
 private:
 

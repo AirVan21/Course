@@ -8,8 +8,10 @@ int main() {
 	Triangle *figure = new Triangle(pBase1, pBase2, pTop);
 	std::cout << "Triangle:" << std::endl;
 	figure->draw();
+	delete figure;
 	SubTraingle *subfugure = new SubTraingle(pBase1, pBase2, pTop);
 	std::cout << "SubTriangle:" << std::endl;
 	subfugure->draw();
+	delete subfugure;
 	return 0;
 }

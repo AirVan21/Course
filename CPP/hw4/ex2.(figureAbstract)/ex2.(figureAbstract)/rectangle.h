@@ -7,7 +7,7 @@ public:
 	Rectangle(Point topLeft, Point bottomRight);
 	~Rectangle();
 	
-	double perim();
-	double area();
+	double perim() const;
+	double area() const;
 
 };

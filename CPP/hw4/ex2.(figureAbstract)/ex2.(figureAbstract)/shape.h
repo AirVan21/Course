@@ -9,9 +9,9 @@ public:
 	Shape(Point nodeOne, Point nodeTwo);
 	~Shape();
 	// Perimeter
-	virtual double perim() = 0;
+	virtual double perim() const = 0;
 	// Square
-	virtual double area() = 0;
+	virtual double area() const = 0;
 
 protected:
 
