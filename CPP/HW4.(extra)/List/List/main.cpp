@@ -17,7 +17,7 @@ void addAfterN(List &lst, int nPos, int inValue)
 		}
 		additional->setNext(current->getNext());
 		current->setNext(additional);
-		lst.getLength()++;
+		lst.setLength(lst.getLength() + 1);
 	}
 }
 

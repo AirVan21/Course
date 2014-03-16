@@ -9,9 +9,6 @@ class List
 public:
 	// Constructor
 	List();
-	~List();
-	// Constructor with head initialization
-	List(int headValue);
 	// Addes value to the start of the List
 	void append(int inValue);
 	// Addes value to the end of the List
@@ -21,11 +18,13 @@ public:
 	// Takes mHead int value & Removes mHead from List
 	int pop();
 	// Gets tail pointer
-	ListElement *getTail() const;
+	ListElement *getTail();
 	// Gets head pointer
-	ListElement *List::getHead() const;
+	ListElement *getHead();
 	// Gets mLenght
-	int &getLength();
+	int getLength() const;
+	// Sets mLenght
+	void setLength(int newLength);
 	// Reverts list
 	void revert();
 

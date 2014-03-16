@@ -6,14 +6,6 @@ List::List() :
 	mLength(0)
 {}
 
-List::List(int inValue)
-{
-	ListElement *start = new ListElement(inValue);
-	mHead = start;
-	mTail = start;
-	mLength = 1;
-}
-
 void List::append(int inValue)
 {
 	ListElement *updateHead = new ListElement(inValue);
@@ -58,21 +50,25 @@ int List::top() const
 	return mHead->getValue();
 }
 
-ListElement *List::getTail() const
+ListElement *List::getTail() 
 {
 	return mTail;
 }
 
-ListElement *List::getHead() const
+ListElement *List::getHead() 
 {
 	return mHead;
 }
 
-int &List::getLength()
+int List::getLength() const
 {
 	return mLength;
 }
 
+void List::setLength(int newLenght)
+{
+	mLength = newLenght;
+}
 // Before revert List : x, y, z, w
 // After revert  List : w, z, y, x 
 void List::revert()
@@ -95,12 +91,3 @@ void List::revert()
 	mTail->setNext(nullptr);
 }
 
-List::~List()
-{
-	ListElement *help;
-	while (mHead != mTail) {
-		help = mHead;
-		mHead = mHead->getNext();
-		delete help;
-	}
-}
