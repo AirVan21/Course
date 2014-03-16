@@ -22,6 +22,12 @@ public:
 	int pop();
 	// Gets tail pointer
 	ListElement *getTail() const;
+	// Gets head pointer
+	ListElement *List::getHead() const;
+	// Gets mLenght
+	int &getLength();
+	// Reverts list
+	void revert();
 
 private:
 	// Note List's head
@@ -29,6 +35,6 @@ private:
 	// Note List's tail
 	ListElement *mTail;
 	// List length
-	int mLenght;
+	int mLength;
 
 };

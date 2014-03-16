@@ -3,7 +3,7 @@
 List::List() :
 	mHead(nullptr),
 	mTail(nullptr),
-	mLenght(0)
+	mLength(0)
 {}
 
 List::List(int inValue)
@@ -11,13 +11,13 @@ List::List(int inValue)
 	ListElement *start = new ListElement(inValue);
 	mHead = start;
 	mTail = start;
-	mLenght = 1;
+	mLength = 1;
 }
 
 void List::append(int inValue)
 {
 	ListElement *updateHead = new ListElement(inValue);
-	if (mLenght == 0) {
+	if (mLength == 0) {
 		mHead = updateHead;
 		mTail = updateHead;
 	}
@@ -25,13 +25,13 @@ void List::append(int inValue)
 		updateHead->setNext(mHead);
 		mHead = updateHead;
 	}
-	mLenght++;
+	mLength++;
 }
 
 void List::push_back(int inValue)
 {
 	ListElement *updateTail = new ListElement(inValue);
-	if (mLenght == 0) {
+	if (mLength == 0) {
 		mHead = updateTail;
 		mTail = updateTail;
 	}
@@ -39,7 +39,7 @@ void List::push_back(int inValue)
 		mTail->setNext(updateTail);
 		mTail = updateTail;
 	}
-	mLenght++;
+	mLength++;
 }
 
 int List::pop() 
@@ -48,7 +48,7 @@ int List::pop()
 	ListElement *newHead = mHead->getNext();
 	int answer = mHead->getValue();
 	delete mHead;
-	mLenght--;
+	mLength--;
 	mHead = newHead;
 	return answer;
 }
@@ -63,6 +63,44 @@ ListElement *List::getTail() const
 	return mTail;
 }
 
+ListElement *List::getHead() const
+{
+	return mHead;
+}
+
+int &List::getLength()
+{
+	return mLength;
+}
+
+// Before revert List : x, y, z, w
+// After revert  List : w, z, y, x 
+void List::revert()
+{
+	// "Write" List in the end
+	ListElement *lastModified = mTail;
+	ListElement *step;
+	// for all elements befor tail
+	for (int i = 1; i < mLength; i++) {
+		step = mHead;
+		// Gets pre lastModified value
+		while (step->getNext() != lastModified) {
+			step = step->getNext();
+		}
+		lastModified->setNext(step);
+		lastModified = step;
+	}
+	mHead = mTail;
+	mTail = lastModified;
+	mTail->setNext(nullptr);
+}
+
 List::~List()
 {
+	ListElement *help;
+	while (mHead != mTail) {
+		help = mHead;
+		mHead = mHead->getNext();
+		delete help;
+	}
 }
