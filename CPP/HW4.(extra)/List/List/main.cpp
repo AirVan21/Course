@@ -5,22 +5,6 @@
 
 using namespace std;
 
-// Adds "inValue" to the list, after element in "inPos" position
-// If nPos > list.mLength => ignore addition
-void addAfterN(List &lst, int nPos, int inValue)
-{
-	if (lst.getLength() >= nPos) {
-		ListElement *additional = new ListElement(inValue);
-		ListElement *current = lst.getHead();
-		for (int i = 1; i < nPos; i++) {
-			current = current->getNext();
-		}
-		additional->setNext(current->getNext());
-		current->setNext(additional);
-		lst.setLength(lst.getLength() + 1);
-	}
-}
-
 int main()
 {
 	// Init
@@ -30,7 +14,7 @@ int main()
 	list.push_back(8);
 	
 	// Addes 99, after 2nd element in list
-	addAfterN(list, 2, 99);
+	list.addAfterN(2, 99);
 	
 	// Gets tail element. Squares it's value
 	ListElement *last = list.getTail();

@@ -5,12 +5,12 @@ ListElement::ListElement(int inValue) :
 	mNext(nullptr)
 {}
 
-int ListElement::getValue() const
+int ListElement::getValue()
 {
 	return mValue;
 }
 
-void ListElement::setValue(const int newValue)
+void ListElement::setValue(int newValue)
 {
 	mValue = newValue;
 }

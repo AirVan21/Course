@@ -9,9 +9,9 @@ public:
 	~ListElement();
 
 	// Takes mValue
-	int getValue() const;
+	int getValue();
 	// Sets mValue
-	void setValue(const int newValue);
+	void setValue(int newValue);
 	// Takes mNext
 	ListElement *getNext() const;
 	// Sets mNext
