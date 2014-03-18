@@ -15,7 +15,7 @@ void ListElement::setValue(int newValue)
 	mValue = newValue;
 }
 
-ListElement *ListElement::getNext() const
+ListElement *ListElement::getNext()
 {
 	return mNext;
 }

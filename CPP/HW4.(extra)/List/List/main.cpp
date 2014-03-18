@@ -24,8 +24,13 @@ int main()
 	
 	// Reverts elements in list
 	// Before : 2 5 99 64
-	// After : 64, 99, 5, 2
+	// After  : 64, 99, 5, 2
 	list.revert();
+
+	// Reverts elements in list, creating new L
+	// Before : 64, 99, 5, 2
+	// After  : 2 5 99 64
+	list.revertNew();
 
 	return 0;
 }

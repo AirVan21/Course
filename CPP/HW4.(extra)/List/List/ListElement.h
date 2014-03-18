@@ -13,7 +13,7 @@ public:
 	// Sets mValue
 	void setValue(int newValue);
 	// Takes mNext
-	ListElement *getNext() const;
+	ListElement *getNext();
 	// Sets mNext
 	void setNext(ListElement *newNext);
 

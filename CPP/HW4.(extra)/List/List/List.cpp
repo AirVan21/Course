@@ -84,6 +84,27 @@ void List::addAfterN(int nPos, int inValue)
 	}
 }
 
+void List::revertNew()
+{
+	ListElement *previous = new ListElement(mHead->getValue());
+	// Sets new Tail
+	mTail = previous;
+	ListElement *step = mHead->getNext();
+	while (step) {
+		ListElement *clone = new ListElement(step->getValue());
+		clone->setNext(previous);
+		previous = clone;
+		step = step->getNext();
+	}
+	// Head of reverted List now in previous
+	while (mHead) {
+		step = mHead;
+		mHead = mHead->getNext();
+		delete step;
+	}
+	mHead = previous;
+}
+
 // Before revert List : x, y, z, w
 // After revert  List : w, z, y, x 
 void List::revert()
@@ -109,7 +130,7 @@ void List::revert()
 List::~List()
 {
 	ListElement *help;
-	while (mHead != mTail) {
+	while (mHead) {
 		help = mHead;
 		mHead = mHead->getNext();
 		delete help;

@@ -31,6 +31,8 @@ public:
 	void addAfterN(int nPos, int inValue);
 	// Reverts list
 	void revert();
+	// Reverst list, creating new elements
+	void revertNew();
 
 private:
 	// Note List's head
