@@ -10,7 +10,7 @@ public:
 	~Rational();
 
 	// Transforms fraction to double
-	operator double const ();
+	operator double () const;
 
 private:
 

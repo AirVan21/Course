@@ -5,7 +5,7 @@ Rational::Rational(int numer, int denom) :
 	mDenominator(denom)
 {}
 
-Rational::operator const double()
+Rational::operator double() const
 {
 	return  double(mNumerator) / mDenominator;
 }

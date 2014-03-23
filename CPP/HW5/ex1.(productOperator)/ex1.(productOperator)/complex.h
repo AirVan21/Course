@@ -7,7 +7,6 @@ public:
 	// @param real value of real part 
 	// @param img  value of imaginary part
 	Complex(int real, int img);
-	~Complex();
 
 	friend Complex operator*(const Complex &multOne, const Complex &multTwo);
 	

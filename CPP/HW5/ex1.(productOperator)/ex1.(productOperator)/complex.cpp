@@ -16,6 +16,3 @@ Complex &operator*=(Complex &multOne, const Complex &multTwo)
 	multOne = operator*(multOne, multTwo);
 	return multOne;
 }
-
-Complex::~Complex()
-{}
