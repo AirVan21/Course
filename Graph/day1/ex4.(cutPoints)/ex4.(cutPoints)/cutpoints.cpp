@@ -48,9 +48,10 @@ void writeFile(string fOutName, vector<int> &way){
 void cutSearch(int place, int parent, vector<bool> &color, vector<int> &points)
 {
 	color[place] = true;
+	int childCounter = 0;
 	timer++;
-	timeIn[place] = timer;
 	decisionTime[place] = timer;
+	timeIn[place] = timer;
 	for (vector<int>::iterator i = graph[place].begin(); i != graph[place].end(); i++) {
 		// Strange case
 		if (*i == parent)
@@ -76,6 +77,19 @@ void cutSearch(int place, int parent, vector<bool> &color, vector<int> &points)
 					points.push_back(place);
 				}
 			}
+			childCounter++;
+		}
+		// special 
+		if (parent == -1 && childCounter > 1) {
+			int exist = false;
+			for (int j = 0; j < points.size(); j++) {
+				if (points[j] == place) {
+					exist = true;
+				}
+			}
+			if (!exist) {
+				points.push_back(place);
+			}
 		}
 	}
 }
@@ -95,10 +109,6 @@ int main()
 	}
 	// Choose first node as a root
 	int root = 1;
-	// Special test for root value
-	if (graph[root].size() > 1) {
-		points.push_back(root);
-	}
 
 	cutSearch(root, -1, color, points);
 	writeFile(fOutName, points);
