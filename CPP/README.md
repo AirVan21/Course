@@ -5,3 +5,4 @@
 4.(extra) Lists.
 5. Mutable, friend, operator.
 6. String, operator +=, static.
+7. STL, namespace.
