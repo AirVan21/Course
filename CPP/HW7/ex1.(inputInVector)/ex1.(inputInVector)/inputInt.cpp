@@ -4,10 +4,10 @@
 
 using namespace std;
 
-void print(const vector<int> &storage)
+void printReverse(const vector<int> &storage)
 {
 	cout << "\nOutput :" << endl;
-	for (auto i = storage.begin(); i != storage.end(); i++) {
+	for (auto i = storage.rbegin(); i != storage.rend(); i++) {
 		cout << *i << " ";
 	}
 	cout << endl;
@@ -23,9 +23,7 @@ int main()
 		storage.push_back(input);
 		cin >> input;
 	}
-	// Reverse input order
-	reverse(storage.begin(), storage.end());
 	// Output
-	print(storage);
+	printReverse(storage);
 	return 0;
 }
