@@ -1,4 +1,4 @@
-#pragma comment(linker, "/STACK:56777216")
+#pragma comment(linker, "/STACK:16777216")
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
@@ -24,7 +24,7 @@ struct arc {
 };
 
 // global variables
-const long long infinity = 9223372368547;
+const long long infinity = 10000000000000001;
 vector<long long> decision;
 vector<arc> graph;
 vector<vector<int>> graphDfs;
@@ -88,10 +88,10 @@ void dfs(int node, set<int> &storrage)
 void shortWay(int nodes, int edges, set<int> &incycle)
 {
 	set<int> relax;
-	vector<int> parent(nodes, 0);
+	vector<int> parent(nodes + 1, 0);
 	for (int i = 0; i <= nodes; i++) {
 		for (int j = 0; j < edges; j++) {
-			if (decision[graph[j].in] < infinity)
+			if (decision[graph[j].in] < infinity) {
 				if (decision[graph[j].out] > (decision[graph[j].in] + graph[j].cost)) {
 					decision[graph[j].out] = max(decision[graph[j].in] + graph[j].cost, -infinity);
 					parent[graph[j].out] = graph[j].in;
@@ -99,6 +99,7 @@ void shortWay(int nodes, int edges, set<int> &incycle)
 						relax.insert(graph[j].out);
 					}
 				}
+			}
 		}
 	}
 
@@ -111,7 +112,7 @@ void shortWay(int nodes, int edges, set<int> &incycle)
 				current = parent[current];
 			}
 			// relax - is in cycle
-			// Finds cycled values & values with are touched by cycle
+			// Finds cycled values & values whiñh are touched by cycle
 			dfs(current, incycle);
 		}
 	}
