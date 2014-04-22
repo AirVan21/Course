@@ -24,11 +24,12 @@ struct arc {
 };
 
 // global variables
-const long long infinity = 10000000000000001;
+const long long infinity = 0x6FFFFFFFFFFFFFF;
+const long long min1 = 0xB000000000000001;
+const long long min2 = 0xB000000000000000;
 vector<long long> decision;
+vector<long long> decision2;
 vector<arc> graph;
-vector<vector<int>> graphDfs;
-vector<bool> color;
 
 void readFile(const string &fInName, int &nodes, int &edges, int &start)
 {
@@ -39,81 +40,60 @@ void readFile(const string &fInName, int &nodes, int &edges, int &start)
 	infile >> nodes;
 	infile >> edges;
 	infile >> start;
-	for (int i = 0; i <= nodes; i++) {
-		color.push_back(0);
-		graphDfs.push_back(vector<int>());
-	}
 	// Create oriented graph
 	while (infile >> first) {
 		infile >> end;
-		infile >> cost;
+		infile >> (long long)cost;
 		graph.push_back(arc(first, end, cost));
-		graphDfs[first].push_back(end);
 	}
 	for (int i = 0; i <= nodes; i++) {
 		decision.push_back(infinity);
+		decision2.push_back(0);
 	}
 	decision[start] = 0;
 	infile.close();
 }
 
-void writeFile(string fOutName, const set<int> &way){
+void writeFile(string fOutName){
 	ofstream outfile(fOutName);
 	for (int i = 1; i < decision.size(); i++) {
-		if (way.find(i) != way.end()) {
-			outfile << '-' << "\n";
-		}
-		else if (decision[i] == infinity) {
+		if (decision[i] == infinity) {
 			outfile << '*' << "\n";
 		}
-		else
+		else if (decision2[i] != decision[i])
 		{
-			outfile << decision[i] << "\n";
+			outfile << '-' << "\n";
+		}
+		else {
+			outfile << (long long)decision[i] << "\n";
 		}
 	}
 	outfile.close();
 }
 
-void dfs(int node, set<int> &storrage)
+void shortWay(int nodes, int edges)
 {
-	color[node] = true;
-	storrage.insert(node);
-	for (vector<int>::iterator i = graphDfs[node].begin(); i != graphDfs[node].end(); i++) {
-		if (!color[*i]) {
-			dfs(*i, storrage);
-		}
-	}
-}
-
-void shortWay(int nodes, int edges, set<int> &incycle)
-{
-	set<int> relax;
-	vector<int> parent(nodes + 1, 0);
-	for (int i = 0; i <= nodes; i++) {
+	for (int i = 0; i < nodes; i++) {
 		for (int j = 0; j < edges; j++) {
-			if (decision[graph[j].in] < infinity) {
+			if (decision[graph[j].in] != infinity) {
 				if (decision[graph[j].out] > (decision[graph[j].in] + graph[j].cost)) {
-					decision[graph[j].out] = max(decision[graph[j].in] + graph[j].cost, -infinity);
-					parent[graph[j].out] = graph[j].in;
-					if (i >= nodes) {
-						relax.insert(graph[j].out);
-					}
+					decision[graph[j].out] =(long long) max(decision[graph[j].in] + graph[j].cost, min2);
 				}
 			}
 		}
 	}
 
-	// Finds elements, which are in minus-weighted cycle
-	if (relax.size() != 0) {
-		for (set<int>::iterator i = relax.begin(); i != relax.end(); i++) {
-			int current = *i;
-			// Takes node that is for sure in cycle
-			for (int j = 0; j < nodes; j++) {
-				current = parent[current];
+	for (int i = 1; i <= nodes; i++) {
+		decision2[i] = decision[i];
+	}
+
+	for (int i = 0; i <= nodes; i++) {
+		for (int j = 0; j < edges; j++) {
+			if (decision[graph[j].in] != infinity) {
+				if (decision2[graph[j].out] > (decision2[graph[j].in] + graph[j].cost)) {
+					decision2[graph[j].out] = min1;
+				}
 			}
-			// relax - is in cycle
-			// Finds cycled values & values whiñh are touched by cycle
-			dfs(current, incycle);
 		}
 	}
 }
@@ -126,8 +106,7 @@ int main()
 	int edges = 0;
 	int start = 0;
 	readFile(fInName, nodes, edges, start);
-	set<int> incycle;
-	shortWay(nodes, edges, incycle);
-	writeFile(fOutName, incycle);
+	shortWay(nodes, edges);
+	writeFile(fOutName);
 	return 0;
 }
