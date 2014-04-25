@@ -13,6 +13,7 @@ vector<pair<int, pair<int, int>>> graph;
 vector<pair<int, pair<int, int>>> original;
 vector<vector<int>> graphVect;
 set<pair<int, int>> result;
+set<pair<int, int>> alternative;
 long weight;
 int cycle_start = 0;
 int cycle_end = 0;
@@ -86,6 +87,7 @@ int main()
 	int start = 0;
 	int end = 0;
 	int cost = 0;
+	int lastAcceptedCost = 0;
 	
 	readFile(fInName, nodes, edges);
 	
@@ -93,9 +95,14 @@ int main()
 		start = i->second.first;
 		end = i->second.second;
 		cost = i->first;
+		if (cost <= lastAcceptedCost) {
+			alternative.insert(i->second);
+		}
 		if (color[start] != color[end]) {
 			weight += cost;
+			lastAcceptedCost = cost;
 			result.insert(i->second);
+			alternative.insert(i->second);
 			graphVect[i->second.first].push_back(i->second.second);
 			graphVect[i->second.second].push_back(i->second.first);
 			int prevVal = color[end];
@@ -111,17 +118,17 @@ int main()
 	ofstream outfile(fOutName);
 	
 	for (vector<pair<int, pair<int, int>>>::iterator i = original.begin(); i != original.end(); i++) {
-		if (result.find(i->second) != result.end()) {
+		if (alternative.find(i->second) != alternative.end()) {
 			outfile << "YES\n";
 		}
 		else {
+			outfile << "NO\n";
+			/*
 			int answer = false;
 			vector<int> colorDfs(nodes + 1, 0);
 			vector<int> parentDfs(nodes + 1, 0);
 			int a = i->second.first;
 			int b = i->second.second;
-			//graphVect[a].insert(graphVect[a].begin(), b);
-			//graphVect[b].insert(graphVect[b].begin(), a);
 			graphVect[a].push_back(b);
 			graphVect[b].push_back(a);
 			cycleSearch(a, colorDfs, parentDfs);
@@ -138,8 +145,6 @@ int main()
 					j = parent;
 				}
 			}
-			//graphVect[a].erase(graphVect[a].begin());
-			//graphVect[b].erase(graphVect[b].begin());
 			graphVect[a].pop_back();
 			graphVect[b].pop_back();
 			if (answer) {
@@ -147,7 +152,7 @@ int main()
 			}
 			else {
 				outfile << "NO\n";
-			}
+			}*/
 		}
 	}
 	outfile.close();
