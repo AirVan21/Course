@@ -17,7 +17,8 @@ devdir     db '     ',0
 end2       db '$'
 datadir    db '        $'
 filename   db 'name.txt', 0
-back       db '..', 0
+readdata   db ' '
+
 start: 
 	mov ecx, 80000000h ; data + adress
 	          
@@ -217,22 +218,7 @@ descript:
 	mov ah, 9          ; PCI device name
 	lea dx, readdata   ;
 	int 21h            ;
-	
-	mov ah, 3Bh        ;
-	lea dx, back       ;
-	int 21h            ; Back to subfolder
-	
-	mov ah, 3Bh        ;
-	lea dx, back       ; Back to subfolder
-	int 21h            ;
-	
-	mov ah, 3Bh        ;
-	lea dx, back       ; Back to subfolder
-	int 21h            ;
 
-	mov ah, 9          ; Print from newstr
-	lea dx, newstr 
-	int 21h
 	popa               ; Recover info
 	ret                ;
 _out:	
@@ -240,6 +226,5 @@ _out:
 	mov dx, offset msg ; 'Goodbye!'
 	int 21h
 	ret
-readdata db ' '
 	end _
 	
