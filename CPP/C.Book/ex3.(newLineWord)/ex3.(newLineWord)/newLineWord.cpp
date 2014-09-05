@@ -11,29 +11,17 @@ using namespace std;
 void printWordsFromNewLine(string& inputString)
 {
 	bool newLineFlag = false;
-	for (char& symbol : inputString) {
-		switch (symbol)
-		{
 
-		case ' ' : 
+	for (char& symbol : inputString) {
+		// New line case
+		if (symbol == '\t' || symbol == '\n' || symbol == ' ') {
 			if (!newLineFlag)
 				cout << endl;
 			newLineFlag = true;
-			break;
-		case '\n' :
-			if (!newLineFlag)
-				cout << endl;
-			newLineFlag = true;
-			break;
-		case '\t':
-			if (!newLineFlag)
-				cout << endl;
-			newLineFlag = true;
-			break;
-		default:
-			newLineFlag = false;
+		}
+		else {
 			cout << symbol;
-			break;
+			newLineFlag = false;
 		}
 	}
 }
