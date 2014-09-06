@@ -8,6 +8,8 @@ using namespace std;
 
 const int MAX_LENGTH = 50;
 
+// Counting amount of words of current length
+// Saving in appropriate array, where index == wordLength
 void countWordLengths(string& inputString, int* statArray)
 {
 	bool skipFlag = false;
@@ -28,10 +30,26 @@ void countWordLengths(string& inputString, int* statArray)
 		}
 	}
 
+	if (!skipFlag)
+		statArray[wordLength]++;
 }
 
-void visualisedPrint(int* lengthArray) {
+// Drawing simple line
+void linePrint(int lineLength) {
+	for (int i = 0; i < lineLength; i++) {
+		printf(" - ");
+	}
+}
 
+// Printing array 
+void visualisedPrint(int* lengthArray) {
+	for (int i = 0; i < MAX_LENGTH; ++i) {
+		if (lengthArray[i]) {
+			cout << " " << i << "  ";
+			linePrint(lengthArray[i]);
+			cout << endl;
+		}
+	}
 }
 
 int main()
