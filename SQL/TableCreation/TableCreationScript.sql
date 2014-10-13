@@ -191,4 +191,16 @@ INSERT INTO A2_Post_List(Post_List_Record_ID, Department_ID, Position_ID, Salary
 -- Delete Tables
 -----------------------------------------------
 
+-- DROP TABLE A2_Contract
+
+-- DROP TABLE A2_Post_List
+
+-- DROP TABLE A2_Employee
+
+-- DROP TABLE A2_Department
+
+-- DROP TABLE A2_Position
+
+
+
 
