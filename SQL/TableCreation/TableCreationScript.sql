@@ -111,36 +111,6 @@ INSERT INTO A2_Employee(Employee_ID, First_Name, Second_Name, Birth_Date, Phone_
 INSERT INTO A2_Employee(Employee_ID, First_Name, Second_Name, Birth_Date, Phone_Number) VALUES (16, 'Semen', 'Krasnov', '1974-06-23','89115342323');
 INSERT INTO A2_Employee(Employee_ID, First_Name, Second_Name, Birth_Date, Phone_Number) VALUES (17, 'Boris', 'Rubin', '1977-10-04','891158934593');
 
---Contracts --
-
--- ML Contracts --
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (1, 1, 1, 2, 0,'1999-02-15')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (2, 2, 1, 3, 0,'2001-03-19')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date, End_Date) VALUES (3, 3, 1, 1, 1,'2013-11-16', '2014-11-16')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (4, 4, 1, 4, 0,'2007-06-29')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (5, 6, 1, 3, 0,'2005-11-23')
-
--- Software Engineering Contract --
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (6, 5, 2, 2, 0,'2006-10-22')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (7, 7, 2, 2, 0,'2005-11-23')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (8, 8, 2, 1, 0,'2010-01-13')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date, End_Date) VALUES (9, 10, 2, 1, 1,'2014-01-10', '2014-10-10')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (10, 11, 2, 5, 0,'2012-11-30')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (11, 12, 2, 5, 0,'2010-02-03')
-
--- Sales Contract --
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date, End_Date) VALUES (12, 9, 3, 7, 1,'2014-02-15', '2014-11-15')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (13, 13, 3, 6, 0,'2003-10-07')
-
--- Support Contract --
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (14, 14, 4, 7, 0, '2012-02-02')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (15, 15, 4, 7, 0, '2012-01-15')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date, End_Date) VALUES (16, 9, 4, 7, 1, '2014-02-15', '2014-11-15')
-
--- Web Contract --
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (17, 16, 5,  8, 0, '2011-11-12')
-INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (18, 17, 5,  9, 0, '2012-10-17')
-
 -- Department --
 INSERT INTO A2_Department(Department_ID, Department_Name, Department_Email) VALUES (1, 'Machine Learning', 'machine_learning.dep@gmail.com')
 INSERT INTO A2_Department(Department_ID, Department_Name, Department_Email) VALUES (2, 'Software Engineering', 'se.dep@gmail.com')
@@ -187,20 +157,54 @@ INSERT INTO A2_Post_List(Post_List_Record_ID, Department_ID, Position_ID, Salary
 INSERT INTO A2_Post_List(Post_List_Record_ID, Department_ID, Position_ID, Salary, Work_Hours) VALUES (17,5,8,70000,40)
 INSERT INTO A2_Post_List(Post_List_Record_ID, Department_ID, Position_ID, Salary, Work_Hours) VALUES (18,5,9,50000,30)
 
+--Contracts --
+
+-- ML Contracts --
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (1, 1, 1, 2, 0,'1999-02-15')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (2, 2, 1, 3, 0,'2001-03-19')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date, End_Date) VALUES (3, 3, 1, 1, 1,'2013-11-16', '2014-11-16')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (4, 4, 1, 4, 0,'2007-06-29')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (5, 6, 1, 3, 0,'2005-11-23')
+
+-- Software Engineering Contract --
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (6, 5, 2, 2, 0,'2006-10-22')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (7, 7, 2, 2, 0,'2005-11-23')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (8, 8, 2, 1, 0,'2010-01-13')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date, End_Date) VALUES (9, 10, 2, 1, 1,'2014-01-10', '2014-10-10')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (10, 11, 2, 5, 0,'2012-11-30')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (11, 12, 2, 5, 0,'2010-02-03')
+
+-- Sales Contract --
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date, End_Date) VALUES (12, 9, 3, 7, 1,'2014-02-15', '2014-11-15')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (13, 13, 3, 6, 0,'2003-10-07')
+
+-- Support Contract --
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (14, 14, 4, 7, 0, '2012-02-02')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (15, 15, 4, 7, 0, '2012-01-15')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date, End_Date) VALUES (16, 9, 4, 7, 1, '2014-02-15', '2014-11-15')
+
+-- Web Contract --
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (17, 16, 5,  8, 0, '2011-11-12')
+INSERT INTO A2_Contract(Contract_ID, Employee_ID, Department_ID, Position_ID, IsTemporary, Start_Date) VALUES (18, 17, 5,  9, 0, '2012-10-17')
+
+
 -----------------------------------------------
 -- Delete Tables
 -----------------------------------------------
 
--- DROP TABLE A2_Contract
+/*
 
--- DROP TABLE A2_Post_List
+DROP TABLE A2_Contract
 
--- DROP TABLE A2_Employee
+DROP TABLE A2_Post_List
 
--- DROP TABLE A2_Department
+DROP TABLE A2_Employee
 
--- DROP TABLE A2_Position
+DROP TABLE A2_Department
 
+DROP TABLE A2_Position
+
+*/
 
 
 
