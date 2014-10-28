@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ex2.LastNZero
 {
+
     class SelectTutorial
     {
         /*
@@ -22,7 +23,8 @@ namespace ex2.LastNZero
             // Performs element transformation along array
             return inputArray.Select(element => (element / degree) * degree).ToArray(); 
         }
-       static void Main(string[] args)
+
+        static void Main(string[] args)
         {
             // Setting parameters
             int zeroAmount = 2;
