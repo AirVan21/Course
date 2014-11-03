@@ -12,13 +12,13 @@ namespace FractionToDecimal
          *  Converts Fration to Decimal approximation list
          *  @ (1 / denominator) - input Fraction
          */
-        private static IEnumerable<int> digits(int denominator, int precision)
+        private static IEnumerable<int> digits(int denominator)
         {
             // Setting fraction: numerator / denominator
             int numerator = 1;
             int nextDigit = 0;
             // Running decimal calculation 
-            for (int i = 0; i < precision; i++)
+            for (int i = 0; ; i++)
             {
                 numerator *= 10;
                 nextDigit = numerator / denominator;
@@ -35,7 +35,7 @@ namespace FractionToDecimal
             System.Console.Write("Decimal Represantation of 1 / ");
             System.Console.Write(denominator);
             System.Console.WriteLine(" :\n");
-            foreach (int nextDigit in digits(denominator, precision))
+            foreach (int nextDigit in digits(denominator).Take(precision))
             {
                 System.Console.Write(nextDigit);
                 System.Console.Write(" ");
