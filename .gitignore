@@ -19,3 +19,19 @@
 *.exe
 *.out
 *.app
+CPP/Automata/ex1.(detectSOS)/Debug/ex1.(detectSOS).ilk
+
+# Studio
+*.tlog
+*.pdb
+*.idb
+*.filters
+*.ilk
+*.sln
+*.sdf
+*.suo
+#*.vcxproj
+*.log
+
+#Wrong
+*.rar
