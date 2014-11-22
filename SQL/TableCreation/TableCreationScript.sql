@@ -128,6 +128,8 @@ INSERT INTO A2_Position(Position_ID, Position_Name, Description) VALUES (6, 'Pro
 INSERT INTO A2_Position(Position_ID, Position_Name, Description) VALUES (7, 'Help Desk Assistant', 'Answers on users questions')
 INSERT INTO A2_Position(Position_ID, Position_Name, Description) VALUES (8, 'System Administrator', 'Set office IT infrastructure')
 INSERT INTO A2_Position(Position_ID, Position_Name, Description) VALUES (9, 'Designer', 'Create sites templates')
+INSERT INTO A2_Position(Position_ID, Position_Name, Description) VALUES (10, 'Scrum Master', 'Set project timeplan')
+INSERT INTO A2_Position(Position_ID, Position_Name, Description) VALUES (11, 'Line Manager', 'Manage department structure')
 
 -- Machine Learning --
 INSERT INTO A2_Post_List(Post_List_Record_ID, Department_ID, Position_ID, Salary, Work_Hours) VALUES (1,1,1,30000,30)

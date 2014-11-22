@@ -68,6 +68,17 @@ SELECT A2_Employee.First_Name, A2_Employee.Second_Name, A2_Employee.Birth_Date F
 	WHERE A2_Contract.Employee_ID = A2_Employee.Employee_ID 
 		AND A2_Employee.Birth_Date < ALL (SELECT DISTINCT A2_Employee.Birth_Date FROM A2_Employee
 											JOIN A2_Contract ON A2_Employee.Employee_ID = A2_Contract.Employee_ID
-												WHERE A2_Contract.IsTemporary = 1) 
+												WHERE A2_Contract.IsTemporary = 1)
+
+/*
+	Create extra EmployeeData Table and using Pseudonym retrive data about 'Sales' department
+*/
+
+SELECT EmployeeData.Name, EmployeeData.Surname, EmployeeData.Position FROM 
+	(SELECT A2_Employee.First_Name AS Name, A2_Employee.Second_Name AS Surname, A2_Position.Position_Name AS Position, A2_Department.Department_Name AS Depart FROM A2_Contract
+		JOIN A2_Employee   ON A2_Contract.Employee_ID = A2_Employee.Employee_ID
+		JOIN A2_Department ON A2_Contract.Department_ID = A2_Department.Department_ID
+		JOIN A2_Position   ON A2_Contract.Position_ID = A2_Position.Position_ID) EmployeeData
+			WHERE EmployeeData.Depart = 'Sales'	 
 
 

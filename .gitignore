@@ -22,6 +22,8 @@
 CPP/Automata/ex1.(detectSOS)/Debug/ex1.(detectSOS).ilk
 
 # Studio
+*.manifest
+*.cache
 *.tlog
 *.pdb
 *.idb
@@ -30,8 +32,10 @@ CPP/Automata/ex1.(detectSOS)/Debug/ex1.(detectSOS).ilk
 *.sln
 *.sdf
 *.suo
-#*.vcxproj
+*.vcxproj
 *.log
+*.config
 
 #Wrong
 *.rar
+
