@@ -35,6 +35,7 @@ CPP/Automata/ex1.(detectSOS)/Debug/ex1.(detectSOS).ilk
 *.vcxproj
 *.log
 *.config
+*.csproj
 
 #Wrong
 *.rar
