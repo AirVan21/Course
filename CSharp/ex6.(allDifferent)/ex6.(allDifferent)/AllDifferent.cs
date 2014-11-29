@@ -4,15 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ex6._allDifferent_
+namespace ex6.allDifferent
 {
     class AllDifferent
     {
-        
-        /*
-         *  Something goes WRONG! (in NOK test)
-         */
-        
         
         /*
          *   Recursive testing:
@@ -23,13 +18,14 @@ namespace ex6._allDifferent_
             if (array.Length > from) {
                 int element = array[from];
                 // Creating a characteristic function via Predicate concat  
-                Predicate<int> extendCondition = t => (t == element) || condition(element);
+                Predicate<int> extendCondition = t => (t == element) || condition(t);
                 bool test = condition(element);
                 return (condition(element)) ? false : allDifferentSubFunc(array, (from + 1), extendCondition);
             } else {
                 return true;
             }
         }
+        
         /*
          *   Implementing simple interface
          */
@@ -40,10 +36,10 @@ namespace ex6._allDifferent_
         static void Main(string[] args)
         {
             int[] okArray = { 1, 2, 3, 4, 5, 10, 11 };
-            int[] nokArray = { 2, 3, 2 };
+            int[] nokArray = {2, 3, 2};
             
             bool okTest = allDifferent(okArray);
-             bool nokTest = allDifferent(nokArray);
+            bool nokTest = allDifferent(nokArray);
             
             System.Console.Write("Ok test => ");
             System.Console.WriteLine(okTest);
