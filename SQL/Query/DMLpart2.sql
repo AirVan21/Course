@@ -1,6 +1,6 @@
-----------------------------------
----    DML Tutorial (part 2)   ---
-----------------------------------
+-----------------------------------
+---  INDEX, TRIGGER Tutorial    ---
+-----------------------------------
 
 /* 
 	Create Index, which contains Employee Postion names
@@ -64,6 +64,7 @@ CREATE TRIGGER TRIG_RM_EMP ON A2_Contract FOR DELETE AS
 DELETE FROM A2_Contract
 	WHERE A2_Contract.Employee_ID = 15
 
--- Nothing Found --
+-- Nothing Found (Checked) --
+
 SELECT A2_Employee.First_Name, A2_Employee.Second_Name FROM A2_Employee
 	WHERE A2_Employee.Employee_ID = 15
