@@ -1,5 +1,7 @@
 #! /bin/bash
 
+# Directory as a first @param
+#
 # Code uses fdupes utility 
 # 
 # sudo apt-get install fdupes
