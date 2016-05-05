@@ -1,0 +1,54 @@
+Book: 1.enc
+1 duplications in file occurs 1228 times
+2 duplications in file occurs 20 times
+3 duplications in file occurs 4 times
+4 duplications in file occurs 1 times
+
+Book: 2.enc
+1 duplications in file occurs 1245 times
+2 duplications in file occurs 14 times
+3 duplications in file occurs 1 times
+4 duplications in file occurs 2 times
+
+Book: 3.enc
+1 duplications in file occurs 1217 times
+2 duplications in file occurs 16 times
+3 duplications in file occurs 3 times
+4 duplications in file occurs 2 times
+8 duplications in file occurs 1 times
+10 duplications in file occurs 1 times
+
+Book: 4.enc
+1 duplications in file occurs 1221 times
+2 duplications in file occurs 22 times
+3 duplications in file occurs 3 times
+4 duplications in file occurs 1 times
+6 duplications in file occurs 1 times
+
+Book: cato_maior.utf8
+1 duplications in file occurs 1242 times
+2 duplications in file occurs 14 times
+3 duplications in file occurs 1 times
+4 duplications in file occurs 2 times
+
+Book: catulli_carmina.utf8
+1 duplications in file occurs 1214 times
+2 duplications in file occurs 16 times
+3 duplications in file occurs 3 times
+4 duplications in file occurs 2 times
+8 duplications in file occurs 1 times
+10 duplications in file occurs 1 times
+
+Book: first_oration.utf8
+1 duplications in file occurs 1225 times
+2 duplications in file occurs 20 times
+3 duplications in file occurs 4 times
+4 duplications in file occurs 1 times
+
+Book: speeches.utf8
+1 duplications in file occurs 1218 times
+2 duplications in file occurs 22 times
+3 duplications in file occurs 3 times
+4 duplications in file occurs 1 times
+6 duplications in file occurs 1 times
+
